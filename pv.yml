@@ -5,8 +5,11 @@ metadata:
   namespace: grafana-poc
 spec:
   capacity:
-    storage: 1Gi
+    storage: 10Gi
   accessModes:
-    - ReadOnlyMany
-  hostPath:
-    path: /mnt/grafana-dashboards
+    - ReadWriteMany
+  gcePersistentDisk:
+    pdName: grafana-poc   # Name of the disk created in Step 1
+    fsType: ext4
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: grafana-poc-storage-class

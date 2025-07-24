@@ -5,7 +5,9 @@ metadata:
   namespace: grafana-poc
 spec:
   accessModes:
-    - ReadOnlyMany
+    - ReadWriteMany
   resources:
     requests:
-      storage: 1Gi
+      storage: 10Gi
+  volumeName:  grafana-dashboards-pv
+  storageClassName: grafana-poc-storage-class
