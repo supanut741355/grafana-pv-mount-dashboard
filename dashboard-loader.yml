@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: dashboard-loader
+spec:
+  containers:
+  - name: loader
+    image: debian
+    command: ["/bin/bash", "-c", "--"]
+    args: ["sleep 3600"]
+    volumeMounts:
+    - mountPath: /mnt/dashboards
+      name: dashboards
+  volumes:
+  - name: dashboards
+    gcePersistentDisk:
+      pdName: grafana-dashboards-disk
+      fsType: ext4
+  restartPolicy: Never

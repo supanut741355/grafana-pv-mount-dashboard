@@ -419,9 +419,9 @@ persistence:
   enabled: true
   # storageClassName: default
   ## (Optional) Use this to bind the claim to an existing PersistentVolume (PV) by name.
-  volumeName: ""
+  volumeName: "grafana-dashboards-pv"
   accessModes:
-    - ReadWriteOnce
+    - ReadWriteMany
   size: 10Gi
   # annotations: {}
   finalizers:
