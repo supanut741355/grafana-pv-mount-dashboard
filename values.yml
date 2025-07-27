@@ -887,7 +887,7 @@ grafana.ini:
   feature_toggles:
     provisioning: true
     kubernetesClientDashboardsFolders: true
-    kubernetesDashboards = true 
+    kubernetesDashboards: true 
   paths:
     data: /var/lib/grafana/
     logs: /var/log/grafana
