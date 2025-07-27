@@ -416,7 +416,7 @@ extraContainerVolumes: []
 ##
 persistence:
   type: pvc
-  enabled: true
+  enabled: false
   # storageClassName: default
   ## (Optional) Use this to bind the claim to an existing PersistentVolume (PV) by name.
   volumeName: "grafana-dashboards-pv"
@@ -884,6 +884,10 @@ dashboardsConfigMaps: {}
 ## ref: http://docs.grafana.org/installation/configuration/
 ##
 grafana.ini:
+  feature_toggles:
+    provisioning: true
+    kubernetesClientDashboardsFolders: true
+    kubernetesDashboards = true 
   paths:
     data: /var/lib/grafana/
     logs: /var/log/grafana
